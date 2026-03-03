@@ -1,0 +1,44 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="src/Application/Albadry.D365.Application/Albadry.D365.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/CodeActivities/" />
+  <Folder Name="/src/CodeActivities/CoreEntities/">
+    <Project Path="src/CodeActivities/CoreEntities/Albadry.D365.CodeActivities.CoreEntities/Albadry.D365.CodeActivities.CoreEntities.csproj" />
+  </Folder>
+  <Folder Name="/src/CodeActivities/CustomEntities/">
+    <Project Path="src/CodeActivities/CustomEntities/Albadry.D365.CodeActivities.CustomEntities/Albadry.D365.CodeActivities.CustomEntities.csproj" />
+  </Folder>
+  <Folder Name="/src/CodeActivities/Integrations/">
+    <Project Path="src/CodeActivities/Integrations/Albadry.D365.CodeActivities.Integrations/Albadry.D365.CodeActivities.Integrations.csproj" />
+  </Folder>
+  <Folder Name="/src/CodeActivities/Notifications/">
+    <Project Path="src/CodeActivities/Notifications/Albadry.D365.CodeActivities.Notifications/Albadry.D365.CodeActivities.Notifications.csproj" />
+  </Folder>
+  <Folder Name="/src/Domain/">
+    <Project Path="src/Domain/Albadry.D365.Domain/Albadry.D365.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/Albadry.D365.Infrastructure/Albadry.D365.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Plugins/" />
+  <Folder Name="/src/Plugins/CoreEntities/">
+    <Project Path="src/Plugins/CoreEntities/Albadry.D365.Plugins.CoreEntities/Albadry.D365.Plugins.CoreEntities.csproj" />
+  </Folder>
+  <Folder Name="/src/Plugins/CustomEntities/">
+    <Project Path="src/Plugins/CustomEntities/Albadry.D365.Plugins.CustomEntities/Albadry.D365.Plugins.CustomEntities.csproj" />
+  </Folder>
+  <Folder Name="/src/Plugins/Integrations/">
+    <Project Path="src/Plugins/Integrations/Albadry.D365.Plugins.Integrations/Albadry.D365.Plugins.Integrations.csproj" />
+  </Folder>
+  <Folder Name="/src/Plugins/Notifications/">
+    <Project Path="src/Plugins/Notifications/Albadry.D365.Plugins.Notifications/Albadry.D365.Plugins.Notifications.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/Albadry.D365.Shared/Albadry.D365.Shared.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Albadry.D365.Tests/Albadry.D365.Tests.csproj" />
+  </Folder>
+</Solution>
