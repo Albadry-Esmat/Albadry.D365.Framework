@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/build/">
+    <File Path="earlybound.ps1" />
+  </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/Application/">
     <Project Path="src/Application/Albadry.D365.Application/Albadry.D365.Application.csproj" />

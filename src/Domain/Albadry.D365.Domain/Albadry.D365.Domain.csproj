@@ -6,4 +6,23 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.45" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EarlyBound\UAT\" />
+    <Folder Include="EarlyBound\Prod\" />
+    <Folder Include="EarlyBound\Dev\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Common\" />
+    <Folder Include="Abstractions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include all Early-Bound classes automatically -->
+    <Compile Include="EarlyBound\**\*.cs" />
+  </ItemGroup>
+  
 </Project>
