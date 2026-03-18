@@ -1,21 +1,23 @@
-﻿{
-    "filters":  {
-                    "optionSets":  [
-                                       "msdyn_flow_approval_priority",
-                                       "powerpagelanguages",
-                                       "fullsyncstate"
-                                   ],
-                    "actions":  [
-                                    "adx_AzureBlobStorageUrl",
-                                    "msdyn_CloneAttachmentsPluginAction",
-                                    "adx_SendEmailConfirmationToContact"
-                                ],
-                    "entities":  [
-                                     "account",
-                                     "contact",
-                                     "activitypointer"
-                                 ]
-                },
-    "generatedAt":  "2026-03-10T06:11:32.5120867+03:00",
-    "folderHash":  null
+{
+  "filters": {
+    "optionSets": [
+      "msdyn_flow_approval_priority",
+      "powerpagelanguages",
+      "fullsyncstate",
+      "socialprofile_community",
+      "activitypointer_deliveryprioritycode"
+    ],
+    "entities": [
+      "account",
+      "contact",
+      "activitypointer"
+    ],
+    "actions": [
+      "adx_AzureBlobStorageUrl",
+      "msdyn_CloneAttachmentsPluginAction",
+      "adx_SendEmailConfirmationToContact"
+    ]
+  },
+  "folderHash": null,
+  "generatedAt": "2026-03-18T17:23:45.7210079+03:00"
 }

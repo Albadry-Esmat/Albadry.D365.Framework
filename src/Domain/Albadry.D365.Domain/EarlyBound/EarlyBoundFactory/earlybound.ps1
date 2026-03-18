@@ -377,6 +377,121 @@ $(if ($deletedNames.Count -gt 10) { "  ... and $($deletedNames.Count - 10) more"
 }
 #endregion
 
+#region Fix PAC CLI Bugs (Response classes)
+Write-Section "Fixing Known PAC CLI Bugs"
+
+$messagesFolder = Join-Path $outputDir "Messages"
+
+if (Test-Path $messagesFolder) {
+    Write-Info "Scanning for Response class bugs..."
+
+    $messageFiles = Get-ChildItem $messagesFolder -Filter "*.cs"
+    $fixedCount = 0
+    $fixedFiles = @()
+
+    foreach ($file in $messageFiles) {
+        $content = Get-Content $file.FullName -Raw
+        $originalContent = $content
+        $fileFixed = $false
+
+        # Split content into lines for analysis
+        $lines = $content -split "`r?`n"
+        $inResponseClass = $false
+        $inGetter = $false
+        $inSetter = $false
+        $propertyName = ""
+        $getterUsesResults = $false
+
+        for ($i = 0; $i -lt $lines.Count; $i++) {
+            $line = $lines[$i]
+
+            # Detect Response class
+            if ($line -match 'class\s+(\w+)Response\s*:\s*Microsoft\.Xrm\.Sdk\.OrganizationResponse') {
+                $inResponseClass = $true
+            }
+
+            # Detect property start
+            if ($inResponseClass -and $line -match '^\s+public\s+(\S+)\s+(\w+)\s*$') {
+                $propertyName = $matches[2]
+                $getterUsesResults = $false
+            }
+
+            # Detect getter block
+            if ($inResponseClass -and $line -match '^\s+get\s*$') {
+                $inGetter = $true
+                $inSetter = $false
+            }
+
+            # Detect setter block
+            if ($inResponseClass -and $line -match '^\s+set\s*$') {
+                $inSetter = $true
+                $inGetter = $false
+            }
+
+            # Check if getter uses Results
+            if ($inGetter -and $line -match 'this\.Results\.Contains') {
+                $getterUsesResults = $true
+            }
+
+            # Fix setter if it incorrectly uses Parameters
+            if ($inSetter -and $getterUsesResults -and $line -match '^\s+this\.Parameters\[') {
+                $lines[$i] = $line -replace 'this\.Parameters\[', 'this.Results['
+                $fileFixed = $true
+            }
+
+            # End of getter or setter
+            if (($inGetter -or $inSetter) -and $line -match '^\s+\}$') {
+                $inGetter = $false
+                $inSetter = $false
+            }
+
+            # Reset when class ends
+            if ($line -match '^\}$' -and $inResponseClass) {
+                $inResponseClass = $false
+            }
+        }
+
+        # Save file if fixed
+        if ($fileFixed) {
+            $newContent = $lines -join "`r`n"
+            Set-Content -Path $file.FullName -Value $newContent -NoNewline -Encoding UTF8
+            $fixedCount++
+            $fixedFiles += $file.Name
+            Write-Host "    Fixed: $($file.Name)" -ForegroundColor Green
+        }
+    }
+
+    if ($fixedCount -gt 0) {
+        Write-OK "Fixed Response class bugs in $fixedCount files"
+
+        # Log the bug fixes
+        $bugFixLog = @"
+
+================================================================
+Albadry's PAC CLI Bug Fixes
+================================================================
+Bug: Response class setters incorrectly use 'Parameters' instead of 'Results'
+PAC CLI Version: 2.0.0.16
+Fixed Files: $fixedCount
+
+Files Fixed:
+$(($fixedFiles | ForEach-Object { "  + $_" }) -join "`n")
+
+Fix Applied:
+  BEFORE: set { this.Parameters["PropertyName"] = value; }
+  AFTER:  set { this.Results["PropertyName"] = value; }
+
+================================================================
+"@
+        $bugFixLog | Add-Content -Path $logFile
+    } else {
+        Write-OK "No Response class bugs found (all clean!)"
+    }
+} else {
+    Write-Info "No Messages folder found - skipping bug fixes"
+}
+#endregion
+
 #region Compute hash of generated files
 function Get-FolderHash($path) {
     # Normalize path

@@ -18,7 +18,9 @@
     "optionSets": [
       "msdyn_flow_approval_priority",
       "powerpagelanguages",
-      "fullsyncstate"
+      "fullsyncstate",
+      "socialprofile_community",
+      "activitypointer_deliveryprioritycode"
     ]
   },
 
