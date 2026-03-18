@@ -30,7 +30,10 @@ packages/
 # Power Platform / D365 generated files
 ################################################################################
 # Early-Bound classes (auto-generated)
-src/Domain/Albadry.D365.Domain/EarlyBound/*
+src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/*
+# Allow EarlyBoundFactory folder and all its contents
+!src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/
+!src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/**
 # Logs
 *.log
 

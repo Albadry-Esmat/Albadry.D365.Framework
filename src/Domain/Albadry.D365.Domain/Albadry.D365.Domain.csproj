@@ -11,18 +11,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EarlyBound\UAT\" />
-    <Folder Include="EarlyBound\Prod\" />
-    <Folder Include="EarlyBound\Dev\" />
-    <Folder Include="Enums\" />
     <Folder Include="Constants\" />
     <Folder Include="Common\" />
     <Folder Include="Abstractions\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Include all Early-Bound classes automatically -->
     <Compile Include="EarlyBound\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="EarlyBound\Dev\**" />
+    <Compile Remove="EarlyBound\Prod\**" />
+    <Compile Remove="EarlyBound\UAT\**" />
+    <EmbeddedResource Remove="EarlyBound\Dev\**" />
+    <EmbeddedResource Remove="EarlyBound\Prod\**" />
+    <EmbeddedResource Remove="EarlyBound\UAT\**" />
+    <None Remove="EarlyBound\Dev\**" />
+    <None Remove="EarlyBound\Prod\**" />
+    <None Remove="EarlyBound\UAT\**" />
   </ItemGroup>
   
 </Project>

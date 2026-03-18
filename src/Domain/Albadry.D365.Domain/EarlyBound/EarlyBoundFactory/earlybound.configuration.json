@@ -1,0 +1,28 @@
+{
+  "dataverseUrl": "https://albadry-dev.crm4.dynamics.com/",
+  "namespace": "Albadry.D365.Domain.EarlyBound",
+  "serviceContextName": "CrmServiceContext",
+  "outputDirectory": "../EarlyBoundClasses",
+
+  "filters": {
+    "entities": [
+      "account",
+      "contact",
+      "activitypointer"
+    ],
+    "actions": [
+      "adx_AzureBlobStorageUrl",
+      "msdyn_CloneAttachmentsPluginAction",
+      "adx_SendEmailConfirmationToContact"
+    ],
+    "optionSets": [
+      "msdyn_flow_approval_priority",
+      "powerpagelanguages",
+      "fullsyncstate"
+    ]
+  },
+
+  "_comments": {
+    "optionSets": "PAC CLI generates ALL optionsets, then the script deletes the ones NOT in this list. Empty array [] = don't generate any optionsets."
+  }
+}

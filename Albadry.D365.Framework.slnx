@@ -1,8 +1,7 @@
 <Solution>
-  <Folder Name="/build/">
-    <File Path="earlybound.ps1" />
-  </Folder>
+  <Folder Name="/build/" />
   <Folder Name="/src/" />
+  <Folder Name="/src/API/" />
   <Folder Name="/src/Application/">
     <Project Path="src/Application/Albadry.D365.Application/Albadry.D365.Application.csproj" />
   </Folder>
@@ -20,6 +19,39 @@
     <Project Path="src/CodeActivities/Notifications/Albadry.D365.CodeActivities.Notifications/Albadry.D365.CodeActivities.Notifications.csproj" />
   </Folder>
   <Folder Name="/src/Domain/">
+    <Folder Name="/src/Domain/EarlyBound/">
+      <Folder Name="/src/Domain/EarlyBound/EarlyBoundFactory/">
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/earlybound.ps1" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/earlybound.configuration.json" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/earlybound.metadata.json" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/Microsoft.PowerShell_profile.ps1" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/README_EarlyBound.md" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/POWERSHELL-PROFILE-SETUP.md" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/OPTIONSETS-LIMITATION.md" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/OPTIONSET-FILTERING-SOLUTION.md" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundFactory/PATH-BEST-PRACTICES.md" />
+      </Folder>
+      <Folder Name="/src/Domain/EarlyBound/EarlyBoundClasses/">
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/CrmServiceContext.cs" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/EntityOptionSetEnum.cs" />
+        <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/earlybound.log" />
+        <Folder Name="/src/Domain/EarlyBound/EarlyBoundClasses/Entities/">
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/Entities/account.cs" />
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/Entities/activitypointer.cs" />
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/Entities/contact.cs" />
+        </Folder>
+        <Folder Name="/src/Domain/EarlyBound/EarlyBoundClasses/Messages/">
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/Messages/adx_AzureBlobStorageUrl.cs" />
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/Messages/adx_SendEmailConfirmationToContact.cs" />
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/Messages/msdyn_CloneAttachmentsPluginAction.cs" />
+        </Folder>
+        <Folder Name="/src/Domain/EarlyBound/EarlyBoundClasses/OptionSets/">
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/OptionSets/fullsyncstate.cs" />
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/OptionSets/msdyn_flow_approval_priority.cs" />
+          <File Path="src/Domain/Albadry.D365.Domain/EarlyBound/EarlyBoundClasses/OptionSets/powerpagelanguages.cs" />
+        </Folder>
+      </Folder>
+    </Folder>
     <Project Path="src/Domain/Albadry.D365.Domain/Albadry.D365.Domain.csproj" />
   </Folder>
   <Folder Name="/src/Infrastructure/">
