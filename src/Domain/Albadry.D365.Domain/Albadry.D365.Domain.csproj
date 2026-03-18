@@ -18,11 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Include all Early-Bound classes automatically -->
-    <Compile Include="EarlyBound\**\*.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <!-- Exclude environment-specific Early-Bound folders -->
     <Compile Remove="EarlyBound\Dev\**" />
     <Compile Remove="EarlyBound\Prod\**" />
     <Compile Remove="EarlyBound\UAT\**" />
